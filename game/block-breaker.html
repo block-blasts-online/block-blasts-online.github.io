@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="robots" content="index, follow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Play Block Breaker online for free! Break blocks with a bouncing ball and paddle in this classic arcade game. Enjoy challenging levels and power-ups!">
+  <meta name="keywords" content="block breaker, arkanoid, breakout, arcade game, free online game, retro gaming">
+  <title>Play Block Breaker fullscreen- Block Blast Online</title>
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="256x256">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" href="/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="canonical" href="https://block-blasts-online.github.io/game/block-breaker.html">
+
+  <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "VideoGame",
+              "name": "Block Breaker",
+              "url": "https://block-blasts-online.github.io/game/block-breaker.html",
+              "description": "Block Breaker is a modern take on the classic arcade brick-breaking games that captured hearts in the 80s and 90s. Break colorful blocks with a bouncing ball and paddle in this classic arcade-style game with multiple challenging levels and power-ups.",
+              "applicationCategory": "Game",
+              "genre": [
+                "Arcade",
+                "Classic",
+                "Ball",
+                "Brick",
+                "Block",
+                "Retro",
+                "Mobile",
+                "Casual"
+              ],
+              "operatingSystem": [
+                "Web Browser",
+                "iOS",
+                "Android"
+              ],
+              "gamePlatform": [
+                "Desktop",
+                "Mobile",
+                "Tablet"
+              ],
+              "publisher": {
+                "@type": "Organization",
+                "name": "Retro Games Studio"
+              },
+              "datePublished": "2024-06-01",
+              "dateModified": "2024-10-01",
+              "inLanguage": "en",
+              "author": {
+                "@type": "Organization",
+                "name": "Retro Games Studio"
+              },
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "9.2",
+                "bestRating": "10",
+                "worstRating": "0",
+                "ratingCount": "42683"
+              },
+              "gameFramework": "HTML5",
+              "playMode": "SinglePlayer"
+            },
+            {
+              "@type": "SoftwareApplication",
+              "name": "Block Breaker",
+              "url": "https://block-blasts-online.github.io/game/block-breaker.html",
+              "description": "A classic brick-breaking arcade game with 100+ levels, multiple game modes, and exciting power-ups.",
+              "applicationCategory": "Game",
+              "operatingSystem": [
+                "Web Browser",
+                "iOS",
+                "Android"
+              ],
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "9.2",
+                "bestRating": "10",
+                "worstRating": "0",
+                "ratingCount": "42683"
+              }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://block-blasts-online.github.io/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Block Breaker",
+                  "item": "https://block-blasts-online.github.io/game/block-breaker.html"
+                }
+              ]
+            }
+          ]
+        }
+        </script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GQC91FSX0C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GQC91FSX0C');
+</script></head>
+
+<body class="bg-gray-100">
+  <div class="container mx-auto px-4 py-8 max-w-6xl">
+    <header class="flex flex-col md:flex-row justify-between items-center bg-blue-600 text-white p-4 rounded-lg mb-6">
+      <div class="logo mb-4 md:mb-0">
+          <span class="text-2xl font-bold"><a href="/" class="hover:text-blue-200">Block-Blast-Online.github.io</a></span>
+          <span class="text-sm ml-2 block md:inline-block">Free Online Puzzle Games</span>
+      </div>
+      <!-- Search Bar -->
+      <div class="relative w-full md:w-auto">
+          <input id="searchBar" type="text" placeholder="Search games..." 
+              class="bg-white text-black rounded-full px-4 py-2 w-full md:w-64 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition duration-300">
+          <button id="searchButton" 
+              class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-yellow-500 hover:bg-yellow-600 text-black font-bold px-4 py-1 rounded-full transition duration-300">
+              Search
+          </button>
+      </div>
+  </header>
+  
+  <!-- Search Results -->
+  <div id="searchResults" class="bg-white rounded-lg shadow-md p-6 mb-6 hidden">
+      <h3 class="text-xl font-semibold mb-4">Search Results</h3>
+      <div id="resultsList" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4"></div>
+  </div>
+  
+  <script>
+      const games = [
+          { name: "Ball Blast", url: "/game/ball-blast.html", img: "/images/games/ball-blast.jpeg" },
+          { name: "Basket Bros", url: "/game/basket-bros.html", img: "/images/games/basket-bros.avif" },
+          { name: "Basket Random", url: "/game/basket-random-unblocked.html", img: "/images/games/basket-random.avif" },
+          { name: "Block Blast 3D", url: "/game/block-blast-3d.html", img: "/images/games/block-blast-3d.avif" },
+          { name: "Block Blast Puzzle", url: "/game/block-blast-puzzle.html", img: "/images/games/block-blast-puzzle.jpeg" },
+          { name: "Block Breaker", url: "/game/block-breaker.html", img: "/images/games/block-breaker.jpg" },
+          { name: "Block Champ", url: "/game/block-champ.html", img: "/images/games/block-champ.jpeg" },
+          { name: "Color Block Jam", url: "/game/color-block-jam.html", img: "/images/games/color-block-jam.png" },
+          { name: "Space Waves", url: "/game/space-waves.html", img: "/images/games/space-waves.avif" },
+          { name: "Space Huggers", url: "/game/spacehuggers.html", img: "/images/games/spacehuggers.jpg" },
+          { name: "Trixie Subway Surfers", url: "/game/trixie-subway-surfers.html", img: "/images/games/trixie-subway-surfers.avif" },
+          { name: "Wood Blocks", url: "/game/wood-blocks.html", img: "/images/games/wood-blocks.jpeg" }
+      ];
+  
+      const fallbackGames = [
+          { name: "Dumb Ways to Die", url: "/game/space-waves.html", img: "/images/games/space-waves.avif" },
+          { name: "Sand Tetris", url: "/game/spacehuggers.html", img: "/images/games/spacehuggers.jpg" },
+          { name: "World's Hardest Game", url: "/game/block-champ.html", img: "/images/games/block-champ.jpeg" }
+      ];
+  
+      const searchBar = document.getElementById("searchBar");
+      const searchButton = document.getElementById("searchButton");
+      const searchResults = document.getElementById("searchResults");
+      const resultsList = document.getElementById("resultsList");
+  
+      searchButton.addEventListener("click", () => {
+          const query = searchBar.value.trim().toLowerCase();
+          resultsList.innerHTML = ""; // Clear previous results
+          searchResults.classList.remove("hidden");
+  
+          const filteredGames = games.filter(game => game.name.toLowerCase().includes(query));
+  
+          if (filteredGames.length > 0) {
+              filteredGames.forEach(game => {
+                  const gameCard = `
+                      <a href="${game.url}" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                          <img src="${game.img}" alt="${game.name}" class="w-full h-32 object-cover">
+                          <div class="p-3 flex justify-between items-center">
+                              <h3 class="font-semibold">${game.name}</h3>
+                          </div>
+                      </a>
+                  `;
+                  resultsList.innerHTML += gameCard;
+              });
+          } else {
+              const noResultsMessage = `<p class="text-gray-700 mb-4">No games found. Here are some suggestions:</p>`;
+              resultsList.innerHTML += noResultsMessage;
+  
+              fallbackGames.forEach(game => {
+                  const fallbackCard = `
+                      <a href="${game.url}" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                          <img src="${game.img}" alt="${game.name}" class="w-full h-32 object-cover">
+                          <div class="p-3 flex justify-between items-center">
+                              <h3 class="font-semibold">${game.name}</h3>
+                          </div>
+                      </a>
+                  `;
+                  resultsList.innerHTML += fallbackCard;
+              });
+          }
+      });
+  </script>
+
+    <div id="game" class="game-container w-full h-96 md:h-[600px] bg-black mb-6 rounded-lg overflow-hidden relative">
+      <iframe id="gameIframe" src="https://f.kbhgames.com/emujs/play.php?c=nes&f=Arkanoid.nes" class="w-full h-full" frameborder="0" allow="gamepad *;"></iframe>
+      
+      <!-- Click Here Overlay -->
+      <div id="clickOverlay" class="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center z-10">
+          <span class="text-white text-xl font-bold cursor-pointer">Click Here</span>
+      </div>
+      
+      <!-- Fullscreen Button -->
+      <button id="fullscreenButton" class="absolute bottom-4 right-4 bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-4 rounded-lg transition duration-300 z-20">
+          Fullscreen
+      </button>
+  </div>
+  
+  <script>
+      const clickOverlay = document.getElementById('clickOverlay');
+      const fullscreenButton = document.getElementById('fullscreenButton');
+      const iframe = document.getElementById('gameIframe');
+  
+      // Hide the overlay when clicked
+      clickOverlay.addEventListener('click', () => {
+          clickOverlay.style.display = 'none';
+      });
+  
+      // Fullscreen functionality
+      fullscreenButton.addEventListener('click', () => {
+          if (iframe.requestFullscreen) {
+              iframe.requestFullscreen();
+          } else if (iframe.mozRequestFullScreen) { // Firefox
+              iframe.mozRequestFullScreen();
+          } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, Opera
+              iframe.webkitRequestFullscreen();
+          } else if (iframe.msRequestFullscreen) { // IE/Edge
+              iframe.msRequestFullscreen();
+          }
+      });
+  </script>
+
+    <h1 class="text-3xl font-bold text-center mb-6">Block Breaker</h1>
+
+    <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="md:col-span-1">
+          <div class="space-y-3">
+            <div class="flex justify-between">
+              <div class="font-semibold">Developer:</div>
+              <div>Retro Games Studio</div>
+            </div>
+            <div class="flex justify-between">
+              <div class="font-semibold">Rating:</div>
+              <div><span class="text-yellow-500 font-bold">9.2</span> (42,683 votes)</div>
+            </div>
+            <div class="flex justify-between">
+              <div class="font-semibold">Released:</div>
+              <div>June 1987</div>
+            </div>
+            
+            <div class="flex justify-between">
+              <div class="font-semibold">Technology:</div>
+              <div>HTML5</div>
+            </div>
+            <div class="flex justify-between">
+              <div class="font-semibold">Platform:</div>
+              <div>Browser (desktop, mobile, tablet), iOS, Android</div>
+            </div>
+
+            <div class="mt-6 flex flex-wrap gap-2">
+              <div class="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Arcade <span
+                  class="text-xs bg-blue-200 px-1 rounded-full">343</span></div>
+              <div class="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Classic <span
+                  class="text-xs bg-blue-200 px-1 rounded-full">264</span></div>
+              <div class="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Ball <span
+                  class="text-xs bg-blue-200 px-1 rounded-full">135</span></div>
+              <div class="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Brick <span
+                  class="text-xs bg-blue-200 px-1 rounded-full">93</span></div>
+              <div class="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Block <span
+                  class="text-xs bg-blue-200 px-1 rounded-full"></span>86</span></div>
+              <div class="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Retro <span
+                  class="text-xs bg-blue-200 px-1 rounded-full">147</span></div>
+              <div class="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Mobile <span
+                  class="text-xs bg-blue-200 px-1 rounded-full">545</span></div>
+              <div class="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Mouse <span
+                  class="text-xs bg-blue-200 px-1 rounded-full">1,391</span></div>
+              <div class="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Casual <span
+                  class="text-xs bg-blue-200 px-1 rounded-full">692</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="md:col-span-2">
+          <h2 class="text-2xl font-semibold mb-4">About Arkanoid Block Breaker</h2>
+          <p class="mb-4">Arkanoid is a legendary arcade game that has captivated players for decades. Released in the
+            1980s, this classic brick-breaking game puts you in control of a paddle to bounce a ball and destroy
+            colorful blocks on the screen. Your mission is simple: break all the blocks to advance to the next level,
+            but be careful—losing the ball means a lost life!</p>
+
+          <p class="mb-4">With its timeless gameplay and retro charm, Arkanoid remains a favorite among arcade
+            enthusiasts. The game features vibrant, pixelated graphics and smooth physics that make every bounce feel
+            satisfying. As you progress through levels, you'll face increasingly challenging block arrangements and
+            obstacles that require precision and skill to overcome.</p>
+
+          <p class="mb-4">Throughout the game, you will encounter a variety of block types, including special power-ups
+            that can give you a strategic edge. These power-ups can upgrade your paddle size, give you multi-balls, or
+            even provide laser shots to break through tougher blocks. Each level presents new challenges, keeping the
+            gameplay fresh and exciting.</p>
+
+          <p class="mb-4">Arkanoid is an enduring classic, offering hours of fun and nostalgia. Whether you're new to
+            the game or a seasoned player, it provides a challenging and rewarding experience with each level you
+            conquer.</p>
+
+          <h2 class="text-2xl font-semibold mb-4">How to Play Arkanoid Block Breaker</h2>
+          <p class="mb-4">In Arkanoid, you control a paddle at the bottom of the screen and use it to bounce a ball
+            upwards, hitting blocks to break them. Your goal is to clear the screen of all blocks without letting the
+            ball fall off the screen. Move the paddle left or right to position it beneath the ball, and use strategic
+            angles to break as many blocks as possible.</p>
+
+          <p class="mb-4">Power-ups can drop from certain blocks when broken, offering special abilities such as a
+            larger paddle, multi-balls, or the ability to shoot lasers at the blocks. Utilize these power-ups to your
+            advantage to complete each level more efficiently. But beware—some blocks require multiple hits to break,
+            and others might be tough to reach!</p>
+
+          <p class="mb-4">As the game progresses, the block patterns become more complicated, and you'll need to adjust
+            your strategy to tackle tougher challenges. It's not just about breaking blocks—it's about mastering the
+            bounce!</p>
+
+
+          <h2 class="text-2xl font-semibold mb-4">Features</h2>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>Classic brick-breaking gameplay with nostalgic charm</li>
+            <li>Challenging levels that increase in difficulty</li>
+            <li>Exciting power-ups to enhance gameplay</li>
+            <li>Simple controls that are easy to learn but hard to master</li>
+            <li>Retro pixelated graphics with smooth physics</li>
+            <li>Multiple block types, including regular, reinforced, and special blocks</li>
+            <li>Endless replayability as you strive for high scores</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+      <h3 class="text-xl font-semibold mb-4">Controls</h3>
+      <p class="mb-2">Desktop: Use the left and right arrow keys or mouse to move the paddle. Click or press space to
+        launch the ball.</p>
+      <p class="mb-2">Mobile: Swipe left or right to move the paddle. Tap to launch the ball.</p>
+    </div>
+
+    <section class="mb-10">
+            <h2 class="text-2xl font-bold mb-4 text-center bg-blue-600 text-white py-2 rounded-lg">TOP RATED BLOCK GAMES</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                <a href="/game/ball-blast.html" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <img src="/images/games/ball-blast.jpeg" alt="Ball Blast - Free Online Game" class="w-full h-44 object-cover">
+                    <div class="p-3 flex justify-between items-center">
+                        <h3 class="font-semibold">Ball Blast</h3>
+                        <div class="text-yellow-500 font-bold">★ 8.7</div>
+                    </div>
+                </a>
+                <a href="/game/basket-bros.html" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <div class="bg-yellow-400 text-black font-bold py-1 px-2 absolute">NEW GAME</div>
+                    <img src="/images/games/basket-bros.avif" alt="Basket Bros - Free Online Game" class="w-full h-44 object-cover">
+                    <div class="p-3 flex justify-between items-center">
+                        <h3 class="font-semibold">Basket Bros</h3>
+                        <div class="text-yellow-500 font-bold">★ 8.9</div>
+                    </div>
+                </a>
+                <a href="/game/basket-random-unblocked.html" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <img src="/images/games/basket-random.avif" alt="Basket Random - Free Online Game" class="w-full h-44 object-cover">
+                    <div class="p-3 flex justify-between items-center">
+                        <h3 class="font-semibold">Basket Random</h3>
+                        <div class="text-yellow-500 font-bold">★ 8.8</div>
+                    </div>
+                </a>
+                <a href="/game/block-blast-3d.html" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <div class="bg-yellow-400 text-black font-bold py-1 px-2 absolute">TOP RATED 🏆</div>
+                    <img src="/images/games/block-blast-3d.avif" alt="Block Blast 3D - Free Online Game" class="w-full h-44 object-cover">
+                    <div class="p-3 flex justify-between items-center">
+                        <h3 class="font-semibold">Block Blast 3D</h3>
+                        <div class="text-yellow-500 font-bold">★ 8.5</div>
+                    </div>
+                </a>
+                <a href="/game/block-blast-puzzle.html" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <div class="bg-yellow-400 text-black font-bold py-1 px-2 absolute">TOP RATED 🏆</div>
+                    <img src="/images/games/block-blast-puzzle.jpeg" alt="Block Blast Puzzle - Free Online Game" class="w-full h-44 object-cover">
+                    <div class="p-3 flex justify-between items-center">
+                        <h3 class="font-semibold">Block Blast Puzzle</h3>
+                        <div class="text-yellow-500 font-bold">★ 8.5</div>
+                    </div>
+                </a>
+                <a href="/game/block-breaker.html" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <img src="/images/games/block-breaker.jpg" alt="Block Breaker - Free Online Game" class="w-full h-44 object-cover">
+                    <div class="p-3 flex justify-between items-center">
+                        <h3 class="font-semibold">Block Breaker</h3>
+                        <div class="text-yellow-500 font-bold">★ 9.2</div>
+                    </div>
+                </a>
+                <a href="/game/block-champ.html" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <img src="/images/games/block-champ.jpeg" alt="Block Champ - Free Online Game" class="w-full h-44 object-cover">
+                    <div class="p-3 flex justify-between items-center">
+                        <h3 class="font-semibold">Block Champ</h3>
+                        <div class="text-yellow-500 font-bold">★ 8.1</div>
+                    </div>
+                </a>
+                <a href="/game/color-block-jam.html" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <div class="bg-yellow-400 text-black font-bold py-1 px-2 absolute">NEW GAME</div>
+                    <img src="/images/games/color-block-jam.png" alt="Color Block Jam - Free Online Game" class="w-full h-44 object-cover">
+                    <div class="p-3 flex justify-between items-center">
+                        <h3 class="font-semibold">Color Block Jam</h3>
+                        <div class="text-yellow-500 font-bold">★ 9.2</div>
+                    </div>
+                </a>
+                <a href="/game/space-waves.html" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <img src="/images/games/space-waves.avif" alt="Space Waves - Free Online Game" class="w-full h-44 object-cover">
+                    <div class="p-3 flex justify-between items-center">
+                        <h3 class="font-semibold">Space Waves</h3>
+                        <div class="text-yellow-500 font-bold">★ 8.8</div>
+                    </div>
+                </a>
+                <a href="/game/spacehuggers.html" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <img src="/images/games/spacehuggers.jpg" alt="Space Huggers - Free Online Game" class="w-full h-44 object-cover">
+                    <div class="p-3 flex justify-between items-center">
+                        <h3 class="font-semibold">SpaceHuggers</h3>
+                        <div class="text-yellow-500 font-bold">★ 8.1</div>
+                    </div>
+                </a>
+                <a href="/game/trixie-subway-surfers.html" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <img src="/images/games/trixie-subway-surfers.avif" alt="Trixie Subway Surfers - Free Online Game" class="w-full h-44 object-cover">
+                    <div class="p-3 flex justify-between items-center">
+                        <h3 class="font-semibold">Trixie Subway Surfers</h3>
+                        <div class="text-yellow-500 font-bold">★ 9.6</div>
+                    </div>
+                </a>
+                <a href="/game/wood-blocks.html" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <img src="/images/games/wood-blocks.jpeg" alt="Wood Blocks - Free Online Game" class="w-full h-44 object-cover">
+                    <div class="p-3 flex justify-between items-center">
+                        <h3 class="font-semibold">Wood Blocks</h3>
+                        <div class="text-yellow-500 font-bold">★ 9.1</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+        
+        <footer class="bg-blue-600 text-white py-8 mt-8 rounded-lg">
+      <div class="container mx-auto px-4">
+        <!-- footer  -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
+          <div>
+            <h4 class="text-xl font-bold mb-4">Block Blast</h4>
+            <p class="text-blue-100 mb-4">Master the ultimate block-matching adventure with thrilling combos and
+              mind-bending levels.</p>
+            <a href="#game"
+              class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-6 rounded-full transition duration-300 inline-block">PLAY
+              NOW</a>
+          </div>
+
+          <div>
+            <h4 class="text-xl font-bold mb-4">Quick Links</h4>
+            <ul class="space-y-2">
+              <li><a href="/" class="text-blue-100 hover:text-white transition duration-300">Home</a></li>
+              <li><a href="/block-blast-solver.html"
+                  class="text-blue-100 hover:text-white transition duration-300">Block Blast Solver</a></li>
+              <!-- <li><a href="/about-us.html" class="text-blue-100 hover:text-white transition duration-300">About Us</a></li>
+                            <li><a href="/contact.html" class="text-blue-100 hover:text-white transition duration-300">Contact</a></li> -->
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-xl font-bold mb-4">Popular Games</h4>
+            <ul class="space-y-2">
+              <li><a href="/game/block-blast-3d.html"
+                  class="text-blue-100 hover:text-white transition duration-300">Block Blast 3D</a></li>
+              <li><a href="/game/block-blast-puzzle.html"
+                  class="text-blue-100 hover:text-white transition duration-300">Block Blast Puzzle</a></li>
+              <li><a href="/game/block-breaker.html"
+                  class="text-blue-100 hover:text-white transition duration-300">Block Breaker</a></li>
+              <li><a href="/game/trixie-subway-surfers.html"
+                  class="text-blue-100 hover:text-white transition duration-300">Trixie Subway Surfers</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 底部链接栏 -->
+        <div class="border-t border-blue-400 pt-6 flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-4 md:mb-0">
+            <p>&copy; 2025 Block Blast. All rights reserved.</p>
+          </div>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="/privacy-policy.html" class="text-blue-100 hover:text-white transition duration-300">Privacy
+              Policy</a>
+            <span class="hidden md:inline text-blue-400">|</span>
+            <a href="/terms-of-use.html" class="text-blue-100 hover:text-white transition duration-300">Terms of Use</a>
+            <!-- <span class="hidden md:inline text-blue-400">|</span>
+                        <a href="/cookie-policy.html" class="text-blue-100 hover:text-white transition duration-300">Cookie Policy</a> -->
+            <!-- <span class="hidden md:inline text-blue-400">|</span>
+                        <a href="/sitemap.html" class="text-blue-100 hover:text-white transition duration-300">Sitemap</a> -->
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W7TV5XXV" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  </div>
+</body>
+
+</html>

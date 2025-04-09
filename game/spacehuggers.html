@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="robots" content="index, follow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Play Space Huggers online for free! Control an arrow through 33 challenging levels, avoiding walls, rotating cogs, and thorns in this exciting arcade game.">
+    <meta name="keywords" content="space huggers, arcade game, obstacle game, free online game, skill game, action games, html5 game, unity webgl, space huggers game, play space huggers, space huggers online, space huggers free, space huggers arcade game, space huggers html5, space huggers unity webgl">
+    <title>Play Space Huggers Fullscreen - Block Blast Online</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="256x256">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" href="/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="canonical" href="https://block-blasts-online.github.io/game/spacehuggers.html">
+
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "VideoGame",
+              "name": "Space Huggers",
+              "url": "https://block-blasts-online.github.io/game/spacehuggers.html",
+              "description": "Space Huggers is an arcade game where you control an arrow to navigate through 33 challenging levels, avoiding obstacles like walls, rotating cogs, and thorns. Choose levels with varying difficulties and test your skill and reflexes.",
+              "applicationCategory": "Game",
+              "genre": [
+                "Casual",
+                "One Button",
+                "Arcade",
+                "Skill",
+                "Obstacle",
+                "Side Scrolling",
+                "2D"
+              ],
+              "operatingSystem": [
+                "Web Browser"
+              ],
+              "gamePlatform": [
+                "Desktop",
+                "Mobile",
+                "Tablet"
+              ],
+              "datePublished": "2024-04-01",
+              "dateModified": "2025-01-01",
+              "inLanguage": "en",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "8.4",
+                "bestRating": "10",
+                "worstRating": "0",
+                "ratingCount": "2407478"
+              },
+              "gameFramework": "HTML5 (Unity WebGL)",
+              "playMode": [
+                "SinglePlayer"
+              ],
+              "numberOfLevels": 33
+            },
+            {
+              "@type": "SoftwareApplication",
+              "name": "Space Huggers",
+              "url": "https://block-blasts-online.github.io/game/spacehuggers.html",
+              "description": "An arcade game with 33 challenging levels where you control an arrow to avoid obstacles, testing your reflexes and skill across various difficulty levels.",
+              "applicationCategory": "Game",
+              "operatingSystem": [
+                "Web Browser"
+              ],
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "8.4",
+                "bestRating": "10",
+                "worstRating": "0",
+                "ratingCount": "2407478"
+              }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://block-blasts-online.github.io/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Space Huggers",
+                  "item": "https://block-blasts-online.github.io/game/spacehuggers.html"
+                }
+              ]
+            }
+          ]
+        }
+    </script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GQC91FSX0C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GQC91FSX0C');
+</script></head>
+
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <header class="flex flex-col md:flex-row justify-between items-center bg-blue-600 text-white p-4 rounded-lg mb-6">
+            <div class="logo mb-4 md:mb-0">
+                <span class="text-2xl font-bold"><a href="/" class="hover:text-blue-200">Block-Blast-Online.github.io</a></span>
+                <span class="text-sm ml-2 block md:inline-block">Free Online Puzzle Games</span>
+            </div>
+            <!-- Search Bar -->
+            <div class="relative w-full md:w-auto">
+                <input id="searchBar" type="text" placeholder="Search games..." 
+                    class="bg-white text-black rounded-full px-4 py-2 w-full md:w-64 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition duration-300">
+                <button id="searchButton" 
+                    class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-yellow-500 hover:bg-yellow-600 text-black font-bold px-4 py-1 rounded-full transition duration-300">
+                    Search
+                </button>
+            </div>
+        </header>
+        
+        <!-- Search Results -->
+        <div id="searchResults" class="bg-white rounded-lg shadow-md p-6 mb-6 hidden">
+            <h3 class="text-xl font-semibold mb-4">Search Results</h3>
+            <div id="resultsList" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4"></div>
+        </div>
+        
+        <script>
+            const games = [
+                { name: "Ball Blast", url: "/game/ball-blast.html", img: "/images/games/ball-blast.jpeg" },
+                { name: "Basket Bros", url: "/game/basket-bros.html", img: "/images/games/basket-bros.avif" },
+                { name: "Basket Random", url: "/game/basket-random-unblocked.html", img: "/images/games/basket-random.avif" },
+                { name: "Block Blast 3D", url: "/game/block-blast-3d.html", img: "/images/games/block-blast-3d.avif" },
+                { name: "Block Blast Puzzle", url: "/game/block-blast-puzzle.html", img: "/images/games/block-blast-puzzle.jpeg" },
+                { name: "Block Breaker", url: "/game/block-breaker.html", img: "/images/games/block-breaker.jpg" },
+                { name: "Block Champ", url: "/game/block-champ.html", img: "/images/games/block-champ.jpeg" },
+                { name: "Color Block Jam", url: "/game/color-block-jam.html", img: "/images/games/color-block-jam.png" },
+                { name: "Space Waves", url: "/game/space-waves.html", img: "/images/games/space-waves.avif" },
+                { name: "Space Huggers", url: "/game/spacehuggers.html", img: "/images/games/spacehuggers.jpg" },
+                { name: "Trixie Subway Surfers", url: "/game/trixie-subway-surfers.html", img: "/images/games/trixie-subway-surfers.avif" },
+                { name: "Wood Blocks", url: "/game/wood-blocks.html", img: "/images/games/wood-blocks.jpeg" }
+            ];
+        
+            const fallbackGames = [
+                { name: "Dumb Ways to Die", url: "/game/space-waves.html", img: "/images/games/space-waves.avif" },
+                { name: "Sand Tetris", url: "/game/spacehuggers.html", img: "/images/games/spacehuggers.jpg" },
+                { name: "World's Hardest Game", url: "/game/block-champ.html", img: "/images/games/block-champ.jpeg" }
+            ];
+        
+            const searchBar = document.getElementById("searchBar");
+            const searchButton = document.getElementById("searchButton");
+            const searchResults = document.getElementById("searchResults");
+            const resultsList = document.getElementById("resultsList");
+        
+            searchButton.addEventListener("click", () => {
+                const query = searchBar.value.trim().toLowerCase();
+                resultsList.innerHTML = ""; // Clear previous results
+                searchResults.classList.remove("hidden");
+        
+                const filteredGames = games.filter(game => game.name.toLowerCase().includes(query));
+        
+                if (filteredGames.length > 0) {
+                    filteredGames.forEach(game => {
+                        const gameCard = `
+                            <a href="${game.url}" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                                <img src="${game.img}" alt="${game.name}" class="w-full h-32 object-cover">
+                                <div class="p-3 flex justify-between items-center">
+                                    <h3 class="font-semibold">${game.name}</h3>
+                                </div>
+                            </a>
+                        `;
+                        resultsList.innerHTML += gameCard;
+                    });
+                } else {
+                    const noResultsMessage = `<p class="text-gray-700 mb-4">No games found. Here are some suggestions:</p>`;
+                    resultsList.innerHTML += noResultsMessage;
+        
+                    fallbackGames.forEach(game => {
+                        const fallbackCard = `
+                            <a href="${game.url}" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                                <img src="${game.img}" alt="${game.name}" class="w-full h-32 object-cover">
+                                <div class="p-3 flex justify-between items-center">
+                                    <h3 class="font-semibold">${game.name}</h3>
+                                </div>
+                            </a>
+                        `;
+                        resultsList.innerHTML += fallbackCard;
+                    });
+                }
+            });
+        </script>
+
+        <div id="game"
+            class="game-container w-full h-96 md:h-[600px] bg-black mb-6 rounded-lg overflow-hidden relative">
+            <iframe id="gameIframe" src="https://block-blasts-online.github.io/spacehuggers/index.html" class="w-full h-full" frameborder="0"
+                allow="gamepad *;"></iframe>
+
+            <!-- Fullscreen Button -->
+            <button id="fullscreenButton"
+                class="absolute bottom-4 right-4 bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-4 rounded-lg transition duration-300 z-20">
+                Fullscreen
+            </button>
+        </div>
+
+        <script>
+            const fullscreenButton = document.getElementById('fullscreenButton');
+            const iframe = document.getElementById('gameIframe');
+
+            // Fullscreen functionality
+            fullscreenButton.addEventListener('click', () => {
+                if (iframe.requestFullscreen) {
+                    iframe.requestFullscreen();
+                } else if (iframe.mozRequestFullScreen) { // Firefox
+                    iframe.mozRequestFullScreen();
+                } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, Opera
+                    iframe.webkitRequestFullscreen();
+                } else if (iframe.msRequestFullscreen) { // IE/Edge
+                    iframe.msRequestFullscreen();
+                }
+            });
+        </script>
+
+        <h1 class="text-3xl font-bold text-center mb-6">Space Huggers</h1>
+
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="md:col-span-1">
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <div class="font-semibold">Rating:</div>
+                            <div><span class="text-yellow-500 font-bold">8.4</span> (2,407,478 votes)</div>
+                        </div>
+                        <div class="flex justify-between">
+                            <div class="font-semibold">Released:</div>
+                            <div>April 2024</div>
+                        </div>
+                        <div class="flex justify-between">
+                            <div class="font-semibold">Last Updated:</div>
+                            <div>January 2025</div>
+                        </div>
+                        <div class="flex justify-between">
+                            <div class="font-semibold">Technology:</div>
+                            <div>HTML5 (Unity WebGL)</div>
+                        </div>
+                        <div class="flex justify-between">
+                            <div class="font-semibold">Platform:</div>
+                            <div>Browser (desktop, mobile, tablet)</div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 flex flex-wrap gap-2">
+                        <div class="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Casual <span
+                                class="text-xs bg-blue-200 px-1 rounded-full">1,089</span></div>
+                        <div class="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">One Button <span
+                                class="text-xs bg-blue-200 px-1 rounded-full">72</span></div>
+                        <div class="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Mobile <span
+                                class="text-xs bg-blue-200 px-1 rounded-full">559</span></div>
+                        <div class="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Avoid <span
+                                class="text-xs bg-blue-200 px-1 rounded-full">259</span></div>
+                        <div class="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Difficult <span
+                                class="text-xs bg-blue-200 px-1 rounded-full">67</span></div>
+                        <div class="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Side Scrolling <span
+                                class="text-xs bg-blue-200 px-1 rounded-full">187</span></div>
+                        <div class="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">2D <span
+                                class="text-xs bg-blue-200 px-1 rounded-full">815</span></div>
+                        <div class="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Obstacle <span
+                                class="text-xs bg-blue-200 px-1 rounded-full">269</span></div>
+                        <div class="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Skill <span
+                                class="text-xs bg-blue-200 px-1 rounded-full">216</span></div>
+                        <div class="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Mouse <span
+                                class="text-xs bg-blue-200 px-1 rounded-full">1,405</span></div>
+                        <div class="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">Arcade <span
+                                class="text-xs bg-blue-200 px-1 rounded-full">342</span></div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-2">
+                    <h2 class="text-2xl font-semibold mb-4">About Space Huggers</h2>
+                    <p class="mb-4">Space Huggers is a fun game where you guide an arrow through obstacles to reach the
+                        end. There are 33 levels, and you can pick any level to play. Each level has a difficulty
+                        rating, so you can choose how challenging you want it to be.</p>
+                    <p class="mb-4">The game is simple to play but hard to master. You control the arrow with just one
+                        button, making it easy to pick up and play. The goal is to avoid walls, rotating cogs, and
+                        thorns while navigating through the levels.</p>
+                    <p class="mb-4">Space Huggers is available on both desktop and mobile devices, so you can play it
+                        anywhere. The game is designed to test your reflexes and skill, making it a great choice for
+                        players who enjoy challenging arcade games.</p>
+
+
+                    <h2 class="text-2xl font-semibold mt-6 mb-4">How to Play Space Huggers</h2>
+                    <p class="mb-4">In each level, your goal is to reach the end without hitting walls, spinning wheels,
+                        or sharp objects. Easy levels (green) have more space and fewer obstacles. Harder levels have
+                        tighter spaces and more challenges.</p>
+
+                    <p class="mb-4">You can start with any level, even the hardest, to test your skills and quick
+                        reactions.</p>
+                    <p class="mb-4">The game is designed to be played with one button. You can use the mouse or keyboard
+                        to control the arrow. Hold the left mouse button or press W/Spacebar to go up, and release to go
+                        down.</p>
+
+                    <h2 class="text-2xl font-semibold mt-6 mb-4">Features</h2>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>33 levels with different challenges</li>
+                        <li>Simple one-button controls</li>
+                        <li>Difficulty ratings for each level</li>
+                        <li>Choose any level to play</li>
+                        <li>Works on desktop and mobile devices</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-semibold mt-6 mb-4">Tips and Strategies</h2>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Move in a zigzag to avoid obstacles and keep control</li>
+                        <li>Start with easy levels to practice</li>
+                        <li>Time your moves carefully instead of rushing</li>
+                        <li>Keep a steady rhythm when moving up and down</li>
+                        <li>Begin with green levels and work your way up</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h3 class="text-xl font-semibold mb-4">Controls</h3>
+            <p class="mb-2"><strong>PC Controls</strong></p>
+            <ul class="list-disc pl-5 space-y-1 mb-4">
+                <li>Hold the left mouse button / W / Spacebar to go up and release to go down</li>
+                <li>P to pause the game</li>
+            </ul>
+            <p class="mb-2"><strong>Mobile Controls</strong></p>
+            <p>Hold the screen to go up and release to go down.</p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h3 class="text-xl font-semibold mb-4">Similar Games</h3>
+            <p class="mb-4">If you enjoy Space Huggers, you might also like these similar games:</p>
+            <ul class="list-disc pl-5 space-y-1">
+                <li><strong>Dumb Ways to Die</strong> - A collection of mini-games where you need to prevent characters
+                    from dying in amusing ways</li>
+                <li><strong>Sand Tetris</strong> - A unique take on the classic Tetris game with a sand-based physics
+                    twist</li>
+                <li><strong>World's Hardest Game</strong> - Another challenging obstacle avoidance game that tests your
+                    reflexes</li>
+                <li><strong>Free GeoGuessr</strong> - A geography game where you guess locations from street view images
+                </li>
+            </ul>
+        </div>
+
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold mb-4 text-center bg-blue-600 text-white py-2 rounded-lg">TOP RATED BLOCK GAMES</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                <a href="/game/ball-blast.html" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <img src="/images/games/ball-blast.jpeg" alt="Ball Blast - Free Online Game" class="w-full h-44 object-cover">
+                    <div class="p-3 flex justify-between items-center">
+                        <h3 class="font-semibold">Ball Blast</h3>
+                        <div class="text-yellow-500 font-bold">★ 8.7</div>
+                    </div>
+                </a>
+                <a href="/game/basket-bros.html" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <div class="bg-yellow-400 text-black font-bold py-1 px-2 absolute">NEW GAME</div>
+                    <img src="/images/games/basket-bros.avif" alt="Basket Bros - Free Online Game" class="w-full h-44 object-cover">
+                    <div class="p-3 flex justify-between items-center">
+                        <h3 class="font-semibold">Basket Bros</h3>
+                        <div class="text-yellow-500 font-bold">★ 8.9</div>
+                    </div>
+                </a>
+                <a href="/game/basket-random-unblocked.html" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <img src="/images/games/basket-random.avif" alt="Basket Random - Free Online Game" class="w-full h-44 object-cover">
+                    <div class="p-3 flex justify-between items-center">
+                        <h3 class="font-semibold">Basket Random</h3>
+                        <div class="text-yellow-500 font-bold">★ 8.8</div>
+                    </div>
+                </a>
+                <a href="/game/block-blast-3d.html" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <div class="bg-yellow-400 text-black font-bold py-1 px-2 absolute">TOP RATED 🏆</div>
+                    <img src="/images/games/block-blast-3d.avif" alt="Block Blast 3D - Free Online Game" class="w-full h-44 object-cover">
+                    <div class="p-3 flex justify-between items-center">
+                        <h3 class="font-semibold">Block Blast 3D</h3>
+                        <div class="text-yellow-500 font-bold">★ 8.5</div>
+                    </div>
+                </a>
+                <a href="/game/block-blast-puzzle.html" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <div class="bg-yellow-400 text-black font-bold py-1 px-2 absolute">TOP RATED 🏆</div>
+                    <img src="/images/games/block-blast-puzzle.jpeg" alt="Block Blast Puzzle - Free Online Game" class="w-full h-44 object-cover">
+                    <div class="p-3 flex justify-between items-center">
+                        <h3 class="font-semibold">Block Blast Puzzle</h3>
+                        <div class="text-yellow-500 font-bold">★ 8.5</div>
+                    </div>
+                </a>
+                <a href="/game/block-breaker.html" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <img src="/images/games/block-breaker.jpg" alt="Block Breaker - Free Online Game" class="w-full h-44 object-cover">
+                    <div class="p-3 flex justify-between items-center">
+                        <h3 class="font-semibold">Block Breaker</h3>
+                        <div class="text-yellow-500 font-bold">★ 9.2</div>
+                    </div>
+                </a>
+                <a href="/game/block-champ.html" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <img src="/images/games/block-champ.jpeg" alt="Block Champ - Free Online Game" class="w-full h-44 object-cover">
+                    <div class="p-3 flex justify-between items-center">
+                        <h3 class="font-semibold">Block Champ</h3>
+                        <div class="text-yellow-500 font-bold">★ 8.1</div>
+                    </div>
+                </a>
+                <a href="/game/color-block-jam.html" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <div class="bg-yellow-400 text-black font-bold py-1 px-2 absolute">NEW GAME</div>
+                    <img src="/images/games/color-block-jam.png" alt="Color Block Jam - Free Online Game" class="w-full h-44 object-cover">
+                    <div class="p-3 flex justify-between items-center">
+                        <h3 class="font-semibold">Color Block Jam</h3>
+                        <div class="text-yellow-500 font-bold">★ 9.2</div>
+                    </div>
+                </a>
+                <a href="/game/space-waves.html" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <img src="/images/games/space-waves.avif" alt="Space Waves - Free Online Game" class="w-full h-44 object-cover">
+                    <div class="p-3 flex justify-between items-center">
+                        <h3 class="font-semibold">Space Waves</h3>
+                        <div class="text-yellow-500 font-bold">★ 8.8</div>
+                    </div>
+                </a>
+                <a href="/game/spacehuggers.html" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <img src="/images/games/spacehuggers.jpg" alt="Space Huggers - Free Online Game" class="w-full h-44 object-cover">
+                    <div class="p-3 flex justify-between items-center">
+                        <h3 class="font-semibold">SpaceHuggers</h3>
+                        <div class="text-yellow-500 font-bold">★ 8.1</div>
+                    </div>
+                </a>
+                <a href="/game/trixie-subway-surfers.html" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <img src="/images/games/trixie-subway-surfers.avif" alt="Trixie Subway Surfers - Free Online Game" class="w-full h-44 object-cover">
+                    <div class="p-3 flex justify-between items-center">
+                        <h3 class="font-semibold">Trixie Subway Surfers</h3>
+                        <div class="text-yellow-500 font-bold">★ 9.6</div>
+                    </div>
+                </a>
+                <a href="/game/wood-blocks.html" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <img src="/images/games/wood-blocks.jpeg" alt="Wood Blocks - Free Online Game" class="w-full h-44 object-cover">
+                    <div class="p-3 flex justify-between items-center">
+                        <h3 class="font-semibold">Wood Blocks</h3>
+                        <div class="text-yellow-500 font-bold">★ 9.1</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+        
+        <footer class="bg-blue-600 text-white py-8 mt-8 rounded-lg">
+            <div class="container mx-auto px-4">
+                <!-- footer  -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
+                    <div>
+                        <h4 class="text-xl font-bold mb-4">Block Blast</h4>
+                        <p class="text-blue-100 mb-4">The ultimate arcade game experience with challenging levels,
+                            exciting obstacles, and addictive gameplay.</p>
+                        <a href="#game"
+                            class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-6 rounded-full transition duration-300 inline-block">PLAY
+                            NOW</a>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xl font-bold mb-4">Quick Links</h4>
+                        <ul class="space-y-2">
+                            <li><a href="/" class="text-blue-100 hover:text-white transition duration-300">Home</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xl font-bold mb-4">Popular Games</h4>
+                        <ul class="space-y-2">
+                            <li><a href="/game/block-blast-3d.html" class="text-blue-100 hover:text-white transition duration-300">Block Blast 3D</a></li>
+                            <li><a href="/game/block-blast-puzzle.html" class="text-blue-100 hover:text-white transition duration-300">Block Blast Puzzle</a></li>
+                            <li><a href="/game/block-breaker.html" class="text-blue-100 hover:text-white transition duration-300">Block Breaker</a></li>
+                            <li><a href="/game/trixie-subway-surfers.html" class="text-blue-100 hover:text-white transition duration-300">Trixie Subway Surfers</a></li>
+                            <li><a href="/game/ball-blast.html" class="text-blue-100 hover:text-white transition duration-300">Ball Blast</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 底部链接栏 -->
+                <div class="border-t border-blue-400 pt-6 flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-4 md:mb-0">
+                        <p>&copy; 2025 Block Blast. All rights reserved.</p>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a href="/privacy-policy.html"
+                            class="text-blue-100 hover:text-white transition duration-300">Privacy Policy</a>
+                        <span class="hidden md:inline text-blue-400">|</span>
+                        <a href="/terms-of-use.html"
+                            class="text-blue-100 hover:text-white transition duration-300">Terms of Use</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W7TV5XXV" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+</body>
+
+</html>
