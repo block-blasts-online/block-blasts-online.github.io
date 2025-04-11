@@ -7,7 +7,7 @@ const path = require('path');
 // const sitemapUrl = `https://randomlygenerator.com/server-sitemap.xml`;
 const sitemapUrl = `/Users/chenxiao/Downloads/server-sitemap-4.xml`;
 // const sitemapUrl = path.join(__dirname,'../public', 'sitemap-0.xml');
-const siteUrl = "https://blast-block.github.io/";
+const siteUrl = "https://block-blasts-online.github.io/";
 
 const host = `${siteUrl}`; // TODO: Update
 const key = '9f2f3db5a0094025bbdc6abbb3cad962'; // TODO: Update
@@ -149,9 +149,9 @@ async function main() {
       // console.log(filteredUrls);
 
       const filteredUrls = [
-        'https://blast-block.github.io/blog/subway-surfers-characters-guide.html',
-'https://blast-block.github.io/blog/block-blast-beginners-guide.html',
-'https://blast-block.github.io/blog/block-blast-tips-and-tricks.html'
+        'https://block-blasts-online.github.io/blog/subway-surfers-characters-guide.html',
+'https://block-blasts-online.github.io/blog/block-blast-beginners-guide.html',
+'https://block-blasts-online.github.io/blog/block-blast-tips-and-tricks.html'
 
       ]
   
