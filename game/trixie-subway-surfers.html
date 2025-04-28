@@ -14,6 +14,24 @@
     <link rel="apple-touch-icon-precomposed" href="/favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="canonical" href="https://block-blasts-online.github.io/game/trixie-subway-surfers.html">
+    <style type="text/css">
+  .mobileShow {display: none;}
+
+  /* Smartphone Portrait and Landscape */
+  @media only screen
+    and (min-device-width : 320px)
+    and (max-device-width : 480px){ 
+      .mobileShow {display: inline;}
+  }
+  .mobileHide { display: inline; }
+
+  /* Smartphone Portrait and Landscape */
+  @media only screen
+    and (min-device-width : 320px)
+    and (max-device-width : 480px){
+     .mobileHide { display: none;}
+  }
+</style>
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -222,7 +240,16 @@
                 }
             });
         </script>
-        
+        <div class="mobileHide"> <script type="text/javascript">
+	atOptions = {
+		'key' : '4b5e78adc91e3546a34a6123bfa8b5f9',
+		'format' : 'iframe',
+		'height' : 90,
+		'width' : 728,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/4b5e78adc91e3546a34a6123bfa8b5f9/invoke.js"></script> </div>
         <div id="game" class="game-container w-full h-96 md:h-[600px] bg-black mb-6 rounded-lg overflow-hidden relative">
             <iframe id="gameIframe" src="https://subwaysurfersgame.io/subway-surfers-game.embed?d=20250313" class="w-full h-full" frameborder="0" allow="gamepad *;"></iframe>
             
